@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Biodata Tugas 1 - Warna Warni</title>
     <style>
-       
         body {
             font-family: 'Segoe UI', Arial, sans-serif;
             max-width: 700px;
@@ -16,7 +15,6 @@
             box-shadow: 0 12px 30px rgba(0,0,0,0.1);
         }
 
-        
         .judul {
             text-align: center;
             font-size: 2.6rem;
@@ -27,7 +25,6 @@
             margin-bottom: 10px;
         }
 
-        
         .pembatas {
             background: linear-gradient(95deg, #2b2d42 0%, #3a5a6f 45%, #2b2d42 100%);
             padding: 1.2rem 1.8rem;
@@ -38,7 +35,6 @@
             transition: 0.2s;
         }
 
-     
         .isi-biodata {
             background-color: rgba(255, 255, 255, 0.7);
             backdrop-filter: blur(2px);
@@ -48,7 +44,6 @@
             box-shadow: inset 0 0 0 2px #fff8, 0 16px 20px -8px #1e293b;
         }
 
-        
         p {
             font-size: 1.4rem;
             margin: 1rem 0;
@@ -57,7 +52,6 @@
             flex-wrap: wrap;
         }
 
-      
         .label-tebal {
             font-weight: 800;
             min-width: 90px;
@@ -66,93 +60,166 @@
             text-decoration: underline wavy rgba(0,0,0,0.1);
         }
 
-      
-        .dpn {
-            color: #c43e7a;  
-            font-weight: 600;
-            text-shadow: 1px 1px 0 #f8cdda;
-        }
-        .blk {
-            color: #2b6c94;  
-            font-weight: 600;
-            text-shadow: 1px 1px 0 #bbdefb;
+        .dpn { color: #c43e7a; font-weight: 600; text-shadow: 1px 1px 0 #f8cdda; }
+        .blk { color: #2b6c94; font-weight: 600; text-shadow: 1px 1px 0 #bbdefb; }
+
+        .warna-npm-value   { color: #b64516; background: #fff1e0; padding: 0 6px; border-radius: 16px; }
+        .warna-nama-value  { color: #1f8459; }
+        .warna-usia-value  { color: #8e44ad; background: #f3e8ff; padding: 0 8px; border-radius: 12px; }
+        .warna-hobi        { color: #d97706; font-weight: 500; }
+        .warna-kota        { color: #a11f5c; font-weight: 500; }
+        .warna-kampus      { color: #0d6b6e; font-weight: 500; }
+
+        .label-npm  { color: #a33329; background: #fee; padding: 0 6px 0 0; }
+        .label-nama { color: #1c7e4c; background: #e3f7ec; padding: 0 6px 0 0; }
+        .label-usia { color: #ac4e9b; background: #f3dcf0; padding: 0 6px 0 0; }
+        .label-lain { color: #3f6792; }
+
+        hr { display: none; }
+
+        /* ===== SOCIAL MEDIA SECTION ===== */
+        .section-title {
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            margin: 30px 0 14px 0;
         }
 
-        
-        .warna-npm-value   { color: #b64516; background: #fff1e0; padding: 0 6px; border-radius: 16px; }  
-        .warna-nama-value  { color: #1f8459; }  
-        .warna-usia-value  { color: #8e44ad; background: #f3e8ff; padding: 0 8px; border-radius: 12px; }  
-        .warna-hobi        { color: #d97706; font-weight: 500; }  
-        .warna-kota        { color: #a11f5c; font-weight: 500; }  
-        .warna-kampus      { color: #0d6b6e; font-weight: 500; } 
-
-        
-        .label-npm { color: #a33329; background: #fee; padding: 0 6px 0 0; border-radius: 0; }
-        .label-nama { color: #1c7e4c; background: #e3f7ec; padding: 0 6px 0 0; border-radius: 0; }
-        .label-usia { color: #ac4e9b; background: #f3dcf0; padding: 0 6px 0 0; border-radius: 0; }
-        .label-lain { color: #3f6792; } 
-
-        
-        .nilai-spesial {
-            font-size: 1.4rem;
+        .sosmed-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+            margin-bottom: 10px;
         }
-        hr {
-            display: none;
+
+        .sosmed-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 700;
+            text-decoration: none;
+            transition: transform 0.15s, box-shadow 0.15s, filter 0.15s;
+            box-shadow: 0 4px 0 rgba(0,0,0,0.18);
         }
+
+        .sosmed-link:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 8px 0 rgba(0,0,0,0.14);
+            filter: brightness(1.08);
+        }
+
+        .sosmed-link:active {
+            transform: translateY(1px);
+            box-shadow: 0 2px 0 rgba(0,0,0,0.18);
+        }
+
+        .link-instagram { background: linear-gradient(135deg, #f58529, #dd2a7b, #8134af); color: #fff; }
+        .link-twitter   { background: #000; color: #fff; }
+        .link-tiktok    { background: linear-gradient(135deg, #010101, #69c9d0); color: #fff; }
+        .link-youtube   { background: #ff0000; color: #fff; }
+        .link-linkedin  { background: #0077b5; color: #fff; }
+        .link-github    { background: #24292e; color: #fff; }
+
+        /* ===== PROFIL LIST SECTION ===== */
+        .profil-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+            margin-top: 10px;
+        }
+
+        @media (max-width: 540px) {
+            .profil-grid { grid-template-columns: 1fr; }
+            .sosmed-grid { flex-direction: column; align-items: center; }
+        }
+
+        .profil-card {
+            background: rgba(255,255,255,0.75);
+            border-radius: 20px;
+            padding: 18px 20px;
+            box-shadow: 0 6px 16px rgba(0,0,0,0.09);
+            border-top: 5px solid var(--card-color);
+        }
+
+        .profil-card h3 {
+            margin: 0 0 12px 0;
+            font-size: 1.05rem;
+            font-weight: 800;
+            color: var(--card-color);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .profil-card ul {
+            margin: 0;
+            padding-left: 20px;
+            list-style: none;
+        }
+
+        .profil-card ul li {
+            position: relative;
+            padding: 4px 0;
+            font-size: 0.97rem;
+            color: #374151;
+        }
+
+        .profil-card ul li::before {
+            content: "▸";
+            color: var(--card-color);
+            font-weight: bold;
+            position: absolute;
+            left: -18px;
+        }
+
+        .card-pengalaman { --card-color: #1d4ed8; }
+        .card-bahasa     { --card-color: #059669; }
+        .card-makanan    { --card-color: #d97706; }
+        .card-artis      { --card-color: #9333ea; }
     </style>
 </head>
 <body>
 
-    
+    <!-- JUDUL -->
     <h1 class="judul">
-        <span style="color:#D44A3B;">B</span><!--
-     --><span style="color:#E68A2E;">I</span><!--
-     --><span style="color:#DCB23A;">O</span><!--
-     --><span style="color:#3A9B5F;">D</span><!--
-     --><span style="color:#2A7FAA;">A</span><!--
-     --><span style="color:#6C4F9F;">T</span><!--
-     --><span style="color:#B54E8A;">A</span><!--
-     --><span style="color:#CF5A3A;">K</span><!--
-     --><span style="color:#D98C2E;">U</span>
+        <span style="color:#D44A3B;">B</span><span style="color:#E68A2E;">I</span><span style="color:#DCB23A;">O</span><span style="color:#3A9B5F;">D</span><span style="color:#2A7FAA;">A</span><span style="color:#6C4F9F;">T</span><span style="color:#B54E8A;">A</span><span style="color:#CF5A3A;">K</span><span style="color:#D98C2E;">U</span>
     </h1>
 
-    
+    <!-- PEMBATAS -->
     <div class="pembatas">
-        
         <span style="color: #f7e05e; font-weight: bold; font-size: 1.4rem;">✦ ～  ～ ～ ～ ～ ～ ～ ～ ～ ✦</span>
         <span style="color: #b0e0ff; float: right;">📋 biodata eksklusif</span>
     </div>
 
-   
+    <!-- ISI BIODATA -->
     <div class="isi-biodata">
-
-       
         <p>
             <span class="label-tebal label-npm">NPM</span>
             <span class="warna-npm-value">: 124005004</span>
             <span style="color:#b20738; font-weight:500; margin-left:6px;">✨</span>
         </p>
-
         <p>
             <span class="label-tebal label-nama">Nama</span>
             <span style="color:#3f6a2c;">: </span>
             <span class="dpn">Gifar Alfa Rizi</span>
             <span style="color:#b34b4b; font-weight:600; margin:0 4px;">⸻</span>
         </p>
-
         <p>
             <span class="label-tebal label-usia">Usia</span>
             <span class="warna-usia-value">: 20 tahun</span>
             <span style="color:#1d7a5c; font-size:1.2rem;"> (🌟 lahir 2005)</span>
         </p>
-
         <p>
             <span class="label-tebal label-lain" style="background:#fef3c7; color:#92400e;">Hobi</span>
             <span style="color:#b45309; font-weight:600;">: </span>
             <span class="warna-hobi">Membaca Komik</span>
-            <span style="color:#ba5f31;">& Menonton Film</span>
+            <span style="color:#ba5f31;">&nbsp;& Menonton Film</span>
         </p>
-
         <p>
             <span class="label-tebal label-lain" style="background:#e0f2fe; color:#0369a1;">Kota asal</span>
             <span style="color:#0284c7;">: </span>
@@ -160,7 +227,6 @@
             <span style="color:#b26b2d;">, Jakarta</span>
             <span style="color:#8f5e3c;"> 🌃</span>
         </p>
-
         <p>
             <span class="label-tebal label-lain" style="background:#f1d7fa; color:#6b21a8;">Kampus</span>
             <span style="color:#7e22ce;">: </span>
@@ -169,14 +235,97 @@
         </p>
     </div>
 
-    <div style="text-align:center; margin-top:20px; opacity:0.9;">
+    <!-- ===== MEDIA SOSIAL ===== -->
+    <div class="section-title">
+        <span style="color:#e63946;">📱</span>
+        <span style="color:#457b9d;"> Media </span>
+        <span style="color:#2d6a4f;">Sosial</span>
+        <span style="color:#e76f51;"> Saya</span>
+    </div>
+
+    <div class="sosmed-grid">
+        <a href="https://www.instagram.com/gifar_alfa" target="_blank" rel="noopener noreferrer" class="sosmed-link link-instagram">
+            📸 Instagram
+        </a>
+        <a href="https://twitter.com/gifar_alfa" target="_blank" rel="noopener noreferrer" class="sosmed-link link-twitter">
+            𝕏 Twitter / X
+        </a>
+        <a href="https://www.tiktok.com/@gifar_alfa" target="_blank" rel="noopener noreferrer" class="sosmed-link link-tiktok">
+            🎵 TikTok
+        </a>
+        <a href="https://www.youtube.com/@gifar_alfa" target="_blank" rel="noopener noreferrer" class="sosmed-link link-youtube">
+            ▶️ YouTube
+        </a>
+        
+        </a>
+        <a href="https://github.com/01345/Gifar_Alfa_Rizi.github.io" target="_blank" rel="noopener noreferrer" class="sosmed-link link-github">
+            🐙 GitHub
+        </a>
+    </div>
+
+    <!-- ===== PROFIL LIST ===== -->
+    <div class="section-title" style="margin-top: 30px;">
+        <span style="color:#6d28d9;">📌</span>
+        <span style="color:#b45309;"> Profil </span>
+        <span style="color:#0d6b6e;">Lengkap</span>
+    </div>
+
+    <div class="profil-grid">
+
+        <!-- Pengalaman / Kerja -->
+        <div class="profil-card card-pengalaman">
+            <h3>💼 Pengalaman / Kerja</h3>
+            <ul>
+                <li>Freelance Web Developer (2024)</li>
+                <li>Asisten Lab Komputer (2024)</li>
+                <li>Magang UI/UX di StartupBDG (2023)</li>
+            </ul>
+        </div>
+
+        <!-- Bahasa yang Dikuasai -->
+        <div class="profil-card card-bahasa">
+            <h3>🌐 Bahasa yang Dikuasai</h3>
+            <ul>
+                <li>🇮🇩 Bahasa Indonesia (Native)</li>
+                <li>🇬🇧 Bahasa Inggris (Intermediate)</li>
+                <li>🇯🇵 Bahasa Jepang (Beginner)</li>
+                <li>💻 HTML, CSS, JavaScript</li>
+                <li>🐍 Python (Dasar)</li>
+            </ul>
+        </div>
+
+        <!-- Makanan Favorit -->
+        <div class="profil-card card-makanan">
+            <h3>🍜 Makanan Favorit</h3>
+            <ul>
+                <li>Nasi Goreng Spesial 🍳</li>
+                <li>Mie Ayam Bakso 🍜</li>
+                <li>Martabak Manis Coklat 🫓</li>
+            </ul>
+        </div>
+
+        <!-- Artis Favorit -->
+        <div class="profil-card card-artis">
+            <h3>🎤 Artis Favorit</h3>
+            <ul>
+                <li>Tulus 🎵</li>
+                <li>James Athur 🎸</li>
+                <li>Hindia 🎶</li>
+            </ul>
+        </div>
+
+    </div>
+
+    <!-- FOOTER -->
+    <div style="text-align:center; margin-top:24px; opacity:0.9;">
         <span style="color:#7a4c7c;">🎨</span>
-        <span style="color:#bc8f4b;">tugas </span>
-        <span style="color:#5f9ea0;">1 • </span>
+        <span style="color:#bc8f4b;"> tugas </span>
+        <span style="color:#5f9ea0;">3a • </span>
         <span style="color:#c44536;">Latihan </span>
         <span style="color:#6a4e9b;">Html </span>
         <span style="color:#d4742c;">berhasil</span>
-        <span style="color:#3f8f7b;">🌌</span>
+        <span style="color:#3f8f7b;"> 🌌</span>
     </div>
+
 </body>
 </html>
