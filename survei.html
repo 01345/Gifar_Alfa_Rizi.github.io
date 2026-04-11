@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Survey Kepuasan Pelanggan | Produk Unggulan</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(145deg, #e0eafc 0%, #cfdef3 100%);
+            font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            padding: 2rem 1.5rem;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Kartu survey utama */
+        .survey-container {
+            max-width: 880px;
+            width: 100%;
+            background-color: #ffffff;
+            border-radius: 2rem;
+            box-shadow: 0 25px 45px -12px rgba(0, 0, 0, 0.35);
+            overflow: hidden;
+            transition: all 0.2s ease;
+        }
+
+        /* Header */
+        .survey-header {
+            background: #1e3c72;
+            background: linear-gradient(135deg, #0f2b4d, #1b4a7a);
+            padding: 1.8rem 2rem;
+            color: white;
+        }
+
+        .survey-header h1 {
+            font-size: 1.9rem;
+            font-weight: 700;
+            letter-spacing: -0.3px;
+            margin-bottom: 0.4rem;
+        }
+
+        .survey-header p {
+            font-size: 1rem;
+            opacity: 0.85;
+            font-weight: 400;
+        }
+
+        /* Form styling */
+        .survey-form {
+            padding: 2rem 2rem 2rem 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.6rem;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: flex-start;
+            gap: 0.5rem;
+        }
+
+        .form-group label {
+            width: 140px;
+            font-weight: 600;
+            color: #1f2f44;
+            padding-top: 0.6rem;
+            font-size: 0.95rem;
+        }
+
+        .form-group .field-wrapper {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 1.5px solid #e2e8f0;
+            border-radius: 1rem;
+            font-size: 0.95rem;
+            transition: all 0.2s;
+            background-color: #fefefe;
+            font-family: inherit;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: #2c6e9e;
+            box-shadow: 0 0 0 3px rgba(44, 110, 158, 0.2);
+        }
+
+        /* Untuk checkbox dan radio grup diberi gaya khusus */
+        .checkbox-group, .radio-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.2rem;
+            align-items: center;
+            background: #f9fafc;
+            padding: 0.6rem 1rem;
+            border-radius: 1.2rem;
+            border: 1px solid #eef2f8;
+        }
+
+        .checkbox-group label, .radio-group label {
+            width: auto;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+            color: #1e2f3e;
+            padding-top: 0;
+        }
+
+        input[type="checkbox"], input[type="radio"] {
+            width: 1.1rem;
+            height: 1.1rem;
+            accent-color: #1e4a76;
+            margin: 0;
+        }
+
+        /* Untuk judul di dalam form */
+        .section-title {
+            font-weight: 700;
+            font-size: 1.05rem;
+            margin-bottom: 0.7rem;
+            color: #1f3a4b;
+            border-left: 4px solid #2c6e9e;
+            padding-left: 0.75rem;
+        }
+
+        .full-width {
+            flex-direction: column;
+        }
+
+        .full-width label {
+            width: 100%;
+            margin-bottom: 0.4rem;
+            padding-top: 0;
+        }
+
+        .full-width .field-wrapper {
+            width: 100%;
+        }
+
+        /* tombol action */
+        .action-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.2rem;
+            margin-top: 2rem;
+            justify-content: center;
+        }
+
+        button {
+            font-size: 1rem;
+            font-weight: 600;
+            padding: 0.8rem 2rem;
+            border: none;
+            border-radius: 2rem;
+            cursor: pointer;
+            transition: 0.2s;
+            font-family: inherit;
+            background: #edf2f7;
+            color: #1f3a4b;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+        }
+
+        .btn-submit {
+            background: #1e4a76;
+            color: white;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .btn-submit:hover {
+            background: #0f3557;
+            transform: translateY(-2px);
+        }
+
+        .btn-reset {
+            background: #eef2ff;
+            border: 1px solid #cbd5e1;
+        }
+
+        .btn-reset:hover {
+            background: #e2e8f0;
+            transform: translateY(-1px);
+        }
+
+        /* responsive */
+        @media (max-width: 680px) {
+            body {
+                padding: 1rem;
+            }
+            .form-group {
+                flex-direction: column;
+            }
+            .form-group label {
+                width: 100%;
+                padding-bottom: 0.2rem;
+            }
+            .checkbox-group, .radio-group {
+                justify-content: flex-start;
+            }
+            .survey-form {
+                padding: 1.5rem;
+            }
+        }
+
+        hr {
+            margin: 1rem 0;
+            border: 0;
+            height: 1px;
+            background: linear-gradient(to right, #e0e7ef, transparent);
+        }
+        .info-note {
+            font-size: 0.75rem;
+            color: #5f6c7a;
+            margin-top: 0.3rem;
+            margin-left: 0.2rem;
+        }
+        footer {
+            background: #f8fafd;
+            text-align: center;
+            padding: 1rem;
+            font-size: 0.75rem;
+            color: #5a6874;
+            border-top: 1px solid #e9edf2;
+        }
+    </style>
+</head>
+<body>
+<div class="survey-container">
+    <div class="survey-header">
+        <h1>📋 Survey Kepuasan Pelanggan</h1>
+        <p>Produk Unggulan Nusantara | Pendapat Anda sangat berarti bagi kami</p>
+    </div>
+
+    <form class="survey-form" id="surveyForm" onsubmit="return false;">
+        <!-- ========== DATA PELANGGAN ========== -->
+        <div class="section-title">📌 Data Pelanggan</div>
+
+        <div class="form-group">
+            <label for="nama">Nama Lengkap :</label>
+            <div class="field-wrapper">
+                <input type="text" id="nama" name="nama" placeholder="Contoh: Ahmad Fauzan" required>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="alamat">Alamat :</label>
+            <div class="field-wrapper">
+                <input type="text" id="alamat" name="alamat" placeholder="Jalan / Desa / Kecamatan, Kota" required>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="tlp">Telepon / HP :</label>
+            <div class="field-wrapper">
+                <input type="tel" id="tlp" name="tlp" placeholder="08xx-xxxx-xxxx" required>
+            </div>
+        </div>
+
+        <!-- Dropdown kategori pelanggan -->
+        <div class="form-group">
+            <label for="kategori">Kategori Pelanggan :</label>
+            <div class="field-wrapper">
+                <select id="kategori" name="kategori" required>
+                    <option value="" disabled selected>-- Pilih kategori --</option>
+                    <option value="perorangan">Perorangan / Individu</option>
+                    <option value="bisnis_ kecil">Bisnis Kecil / UMKM</option>
+                    <option value="korporasi">Korporasi / Perusahaan</option>
+                    <option value="reseller">Reseller / Dropshipper</option>
+                    <option value="instansi">Instansi Pemerintah / Pendidikan</option>
+                </select>
+            </div>
+        </div>
+
+        <hr>
+
+        <!-- ========== CHECKBOX : PRODUK YANG DISUKAI ========== -->
+        <div class="section-title">⭐ Produk yang Anda sukai (boleh lebih dari satu)</div>
+        <div class="form-group">
+            <div class="field-wrapper">
+                <div class="checkbox-group">
+                    <label>
+                        <input type="checkbox" name="produk" value="Produk A - Laptop Pro"> 💻 Laptop Pro X1
+                    </label>
+                    <label>
+                        <input type="checkbox" name="produk" value="Produk B - SmartWatch Fit"> ⌚ SmartWatch Fit
+                    </label>
+                    <label>
+                        <input type="checkbox" name="produk" value="Produk C - Headphone ANC"> 🎧 Headphone ANC
+                    </label>
+                    <label>
+                        <input type="checkbox" name="produk" value="Produk D - Speaker Bluetooth"> 🔊 Speaker BT Max
+                    </label>
+                    <label>
+                        <input type="checkbox" name="produk" value="Produk E - Powerbank 20000mAh"> 🔋 Powerbank Ultra
+                    </label>
+                </div>
+                <div class="info-note">✔️ Centang produk favorit atau yang biasa Anda gunakan.</div>
+            </div>
+        </div>
+
+        <hr>
+
+        <!-- ========== RADIO BUTTON : KEPUASAN PELANGGAN ========== -->
+        <div class="section-title">😊 Tingkat Kepuasan Anda terhadap produk kami</div>
+        <div class="form-group">
+            <div class="field-wrapper">
+                <div class="radio-group">
+                    <label>
+                        <input type="radio" name="kepuasan" value="Sangat Puas"> 🌟 Sangat Puas
+                    </label>
+                    <label>
+                        <input type="radio" name="kepuasan" value="Puas"> 👍 Puas
+                    </label>
+                    <label>
+                        <input type="radio" name="kepuasan" value="Cukup"> 😐 Cukup
+                    </label>
+                    <label>
+                        <input type="radio" name="kepuasan" value="Kurang Puas"> 😕 Kurang Puas
+                    </label>
+                    <label>
+                        <input type="radio" name="kepuasan" value="Tidak Puas"> 😞 Tidak Puas
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <hr>
+
+        <!-- ========== TEXTAREA : KOMENTAR ========== -->
+        <div class="section-title">💬 Komentar / Saran Anda</div>
+        <div class="form-group full-width">
+            <div class="field-wrapper">
+                <textarea id="komentar" name="komentar" rows="4" placeholder="Tuliskan pengalaman, kritik, atau saran membangun untuk meningkatkan kualitas produk dan layanan kami..."></textarea>
+                <div class="info-note">Masukan Anda sangat berharga untuk kami.</div>
+            </div>
+        </div>
+
+        <!-- ========== TOMBOL SUBMIT & RESET ========== -->
+        <div class="action-buttons">
+            <button type="submit" class="btn-submit" id="submitBtn">✉️ Kirim Survey</button>
+            <button type="reset" class="btn-reset" id="resetBtn">⟳ Reset Form</button>
+        </div>
+    </form>
+
+    <footer>
+        © 2025 Survey Kepuasan Pelanggan — Terima kasih atas partisipasi Anda
+    </footer>
+</div>
+
+<!-- SweetAlert sederhana untuk notifikasi, tapi tidak wajib. 
+     Bisa menggunakan alert biasa, tapi lebih elegan -->
+<script>
+    (function() {
+        const form = document.getElementById('surveyForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const resetBtn = document.getElementById('resetBtn');
+
+        // Fungsi validasi sebelum submit
+        function validateForm() {
+            // Ambil nilai field
+            const nama = document.getElementById('nama').value.trim();
+            const alamat = document.getElementById('alamat').value.trim();
+            const tlp = document.getElementById('tlp').value.trim();
+            const kategori = document.getElementById('kategori').value;
+            const kepuasanRadios = document.querySelectorAll('input[name="kepuasan"]');
+            let kepuasanSelected = false;
+            for (let radio of kepuasanRadios) {
+                if (radio.checked) {
+                    kepuasanSelected = true;
+                    break;
+                }
+            }
+
+            // Validasi sederhana
+            if (nama === "") {
+                alert("❌ Nama lengkap harus diisi.");
+                document.getElementById('nama').focus();
+                return false;
+            }
+            if (alamat === "") {
+                alert("❌ Alamat harus diisi.");
+                document.getElementById('alamat').focus();
+                return false;
+            }
+            if (tlp === "") {
+                alert("❌ Nomor telepon/HP harus diisi.");
+                document.getElementById('tlp').focus();
+                return false;
+            }
+            if (!kategori || kategori === "") {
+                alert("❌ Silakan pilih kategori pelanggan.");
+                document.getElementById('kategori').focus();
+                return false;
+            }
+            if (!kepuasanSelected) {
+                alert("❌ Harap pilih tingkat kepuasan Anda (salah satu radio button).");
+                return false;
+            }
+
+            // Opsional: validasi minimal pilih produk tidak wajib, tapi boleh ditambahkan? Tugas tidak mewajibkan, tapi lebih baik informatif.
+            // Kita hanya beri peringatan ringan jika tidak ada produk dipilih (tidak menghalangi submit, hanya saran)
+            const checkboxes = document.querySelectorAll('input[name="produk"]:checked');
+            if (checkboxes.length === 0) {
+                // Tanya konfirmasi karena tidak wajib, tapi biar lebih baik user sadar.
+                return confirm("⚠️ Anda belum memilih produk favorit. Apakah tetap ingin mengirim survey?");
+            }
+            return true;
+        }
+
+        // Fungsi untuk menampilkan ringkasan data setelah submit (sebagai simulasi pengiriman ke server)
+        function showSummaryAndSuccess() {
+            // Mengambil semua data dari form
+            const nama = document.getElementById('nama').value.trim();
+            const alamat = document.getElementById('alamat').value.trim();
+            const tlp = document.getElementById('tlp').value.trim();
+            const kategoriSelect = document.getElementById('kategori');
+            const kategoriText = kategoriSelect.options[kategoriSelect.selectedIndex]?.text || "-";
+            
+            // Produk yang disukai
+            const produkChecked = document.querySelectorAll('input[name="produk"]:checked');
+            let produkList = [];
+            produkChecked.forEach(cb => produkList.push(cb.value));
+            const produkString = produkList.length ? produkList.join(", ") : "(Tidak ada produk dipilih)";
+            
+            // Kepuasan
+            let kepuasanValue = "";
+            const kepuasanRadios = document.querySelectorAll('input[name="kepuasan"]');
+            for (let radio of kepuasanRadios) {
+                if (radio.checked) {
+                    kepuasanValue = radio.value;
+                    break;
+                }
+            }
+            const komentar = document.getElementById('komentar').value.trim() || "(Tidak ada komentar)";
+            
+            // Format pesan sukses dengan gaya alert modern tapi pakai window.confirm? lebih baik pakai alert terstruktur.
+            // Agar lebih informatif, kita tampilkan data survey via alert box (bisa juga modal, tapi sesuai kebutuhan sederhana)
+            let message = "✅ SURVEY BERHASIL DIKIRIM! \n\n";
+            message += "📋 DATA PELANGGAN:\n";
+            message += `Nama      : ${nama}\n`;
+            message += `Alamat    : ${alamat}\n`;
+            message += `Telepon   : ${tlp}\n`;
+            message += `Kategori  : ${kategoriText}\n\n`;
+            message += `🛍️ Produk favorit : ${produkString}\n\n`;
+            message += `😊 Kepuasan       : ${kepuasanValue}\n\n`;
+            message += `💬 Komentar       : ${komentar}\n\n`;
+            message += `Terima kasih atas partisipasi Anda! 🙌`;
+            
+            alert(message);
+            // Setelah alert, kita reset form? Tidak, sesuai permintaan hanya submit dan reset sebagai aksi.
+            // Tapi secara UX, setelah sukses kirim biasanya user bisa reset manual. Biarkan form tetap terisi, 
+            // namun boleh juga opsional reset? Tugas tidak mewajibkan auto reset, jadi biarkan saja.
+            // Namun untuk kenyamanan, beri opsi atau tidak perlu. Kita biarkan, tapi kita bisa fokuskan ke reset manual.
+            // Tapi juga tidak masalah, karena jika user ingin mengisi baru bisa tekan reset.
+        }
+
+        // Handler submit
+        function handleSubmit(event) {
+            if (event) event.preventDefault();
+            if (validateForm()) {
+                showSummaryAndSuccess();
+                // (Optional) Tidak reset otomatis agar pengguna bisa melihat datanya, 
+                // namun tombol reset tetap berfungsi jika ingin membersihkan.
+            }
+        }
+
+        // Handler reset bawaan form: reset semua input, textarea, select, checkbox, radio
+        function handleReset() {
+            // reset form secara native
+            form.reset();
+            // Karena select memiliki placeholder disabled selected, setelah reset tetap pilih opsi pertama (disabled)
+            // supaya tidak ada nilai default tersembunyi, pastikan kembali ke "-- Pilih kategori --"
+            // setelah reset, karena select option pertama disabled selected, secara native akan mereset ke opsi yang memiliki selected
+            // Tapi HTML kita tidak memberikan selected secara default pada option value kosong, namun kita set dengan selected agar tidak kosong
+            // Karena di HTML sudah ada <option value="" disabled selected>, jadi reset akan kembali ke opsi itu.
+            // Untuk checkbox dan radio juga clear.
+            // Tapi ada kemungkinan textarea tetap terisi, tetapi reset akan membersihkan semua.
+            // Selesai, beri feedback kecil.
+            // Hapus focus dari manapun
+            document.getElementById('nama').focus();
+            // optional feedback
+            alert("🔄 Semua data telah direset. Silakan isi ulang survey.");
+        }
+
+        // Pasang event listener
+        submitBtn.addEventListener('click', handleSubmit);
+        resetBtn.addEventListener('click', function(e) {
+            e.preventDefault();  // mencegah default reset (meskipun tidak masalah)
+            handleReset();
+        });
+        
+        // Mencegah submit jika enter ditekan di field form? biarkan normal, karena tombol submit juga handle
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            handleSubmit(e);
+        });
+        
+        // Tambahkan sedikit gaya untuk radio group dan checkbox lebih rapi
+        // Dan memastikan tombol reset tidak konflik dengan type="reset", karena kita menggunakan tombol biasa
+        // yang sudah di handle secara manual. Dan kami tidak menggunakan <button type="reset"> agar terkontrol,
+        // namun kami beri type="button" untuk kedua tombol? Sebenarnya di HTML sudah tidak ada type="reset" (tombol kedua type="reset"?)
+        // Pada HTML tombol reset adalah <button type="reset">, sebenarnya itu akan melakukan reset secara native tanpa JS.
+        // Tapi karena kita sudah attach event handler manual, untuk menghindari dobel reset, kita ubah type reset menjadi button.
+        // Agar tidak bentrok dengan reset bawaan form. Ubah secara dinamis via JS agar lebih aman.
+        // Lebih baik kita ubah attribute type resetBtn menjadi "button" agar tidak ada konflik dengan form reset bawaan.
+        // Namun sebelumnya kita sudah menambahkan e.preventDefault di event resetBtn, itu cukup, tetapi form.reset() yang dipanggil manual 
+        // akan tetap bekerja. Jadi aman. Tapi lebih baik kita pastikan reset button type="button" agar tidak memicu reset ganda.
+        // Karena pada kode HTML tertulis type="reset", akan menjalankan reset browser + event handler kita.
+        // Agar rapi, kita ubah menjadi type="button" via script.
+        const resetButtonElem = document.getElementById('resetBtn');
+        if (resetButtonElem) {
+            resetButtonElem.setAttribute('type', 'button');
+        }
+        // Submit button juga pastikan type button agar tidak submit form secara native (karena kita handle via js)
+        const submitButtonElem = document.getElementById('submitBtn');
+        if (submitButtonElem) {
+            submitButtonElem.setAttribute('type', 'button');
+        }
+        
+        // Tambahan validasi opsional: untuk telepon bisa minimal angka (bukan paksaan, hanya mempermudah)
+        const tlpInput = document.getElementById('tlp');
+        tlpInput.addEventListener('input', function(e) {
+            // hanya untuk kenyamanan, tanpa menghilangkan nilai
+        });
+        
+        // set agar radio pertama tidak otomatis terpilih biar user sadar harus memilih (tidak ada default)
+        // Semua radio sudah tidak ada checked secara default, sehingga user harus pilih.
+    })();
+</script>
+</body>
+</html>
