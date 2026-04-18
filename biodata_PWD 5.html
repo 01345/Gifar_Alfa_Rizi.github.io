@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biodata Tugas - Frame Navigasi (4 Halaman)</title>
+    <style>
+        /* Gaya utama dari kode asli tetap dipertahankan */
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            max-width: 1000px;
+            margin: 30px auto;
+            padding: 20px;
+            background: linear-gradient(145deg, #f9f9f9 0%, #eaeef5 100%);
+            border-radius: 24px;
+            box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+        }
+
+        .judul {
+            text-align: center;
+            font-size: 2.6rem;
+            font-weight: 800;
+            letter-spacing: 3px;
+            text-shadow: 4px 4px 0 #ffe0b0, 6px 6px 0 rgba(0,0,0,0.1);
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        .pembatas {
+            background: linear-gradient(95deg, #2b2d42 0%, #3a5a6f 45%, #2b2d42 100%);
+            padding: 1.2rem 1.8rem;
+            border-radius: 60px 20px 60px 20px;
+            margin: 25px 0 30px 0;
+            box-shadow: 0 8px 0 #0f172a;
+            border-left: 6px solid #facc15;
+            transition: 0.2s;
+        }
+
+        /* Navigasi Frame */
+        .nav-frame {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin: 20px 0 20px;
+        }
+        .nav-frame button {
+            background: linear-gradient(135deg, #1e3c4c, #2a5a6e);
+            border: none;
+            color: white;
+            font-size: 1.2rem;
+            font-weight: bold;
+            padding: 12px 28px;
+            border-radius: 40px;
+            cursor: pointer;
+            transition: 0.2s;
+            box-shadow: 0 4px 0 #0f2b3d;
+            letter-spacing: 1px;
+        }
+        .nav-frame button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 0 #0f2b3d;
+            background: linear-gradient(135deg, #2a5a6e, #1e3c4c);
+        }
+        .nav-frame button:active {
+            transform: translateY(2px);
+            box-shadow: 0 2px 0 #0f2b3d;
+        }
+
+        /* Konten iframe */
+        .frame-container {
+            border-radius: 28px;
+            overflow: hidden;
+            box-shadow: 0 12px 28px rgba(0,0,0,0.15);
+            background: white;
+            margin: 15px 0 20px;
+            border: 2px solid rgba(255,255,240,0.6);
+        }
+        iframe {
+            width: 100%;
+            height: 650px;
+            border: none;
+            display: block;
+            background: #fffef7;
+        }
+
+        /* Gaya tambahan untuk konsistensi */
+        .footer-custom {
+            text-align: center;
+            margin-top: 24px;
+            opacity: 0.9;
+            color: #3b5c5a;
+            font-weight: 500;
+        }
+
+        @media (max-width: 700px) {
+            body { padding: 12px; margin: 15px; }
+            .judul { font-size: 1.8rem; }
+            .nav-frame button { padding: 8px 18px; font-size: 1rem; }
+            iframe { height: 580px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- JUDUL -->
+    <h1 class="judul">
+        <span style="color:#D44A3B;">B</span><span style="color:#E68A2E;">I</span><span style="color:#DCB23A;">O</span><span style="color:#3A9B5F;">D</span><span style="color:#2A7FAA;">A</span><span style="color:#6C4F9F;">T</span><span style="color:#B54E8A;">A</span><span style="color:#CF5A3A;">K</span><span style="color:#D98C2E;">U</span>
+        <span style="font-size: 1rem; display: inline-block; background: #facc15; padding: 4px 12px; border-radius: 40px; margin-left: 15px;">📁 Frame Navigasi</span>
+    </h1>
+
+    <!-- PEMBATAS -->
+    <div class="pembatas">
+        <span style="color: #f7e05e; font-weight: bold; font-size: 1.4rem;">✦  Navigasi 4 Halaman  ✦</span>
+        <span style="color: #b0e0ff; float: right;">🏠 | 🎨 | 🎓 | 📞</span>
+    </div>
+
+    <!-- TOMBOL NAVIGASI FRAME -->
+    <div class="nav-frame">
+        <button onclick="gantiHalaman('home')">🏠 Home / Biodata</button>
+        <button onclick="gantiHalaman('hobby')">🎨 Hobby</button>
+        <button onclick="gantiHalaman('pendidikan')">🎓 Pendidikan</button>
+        <button onclick="gantiHalaman('kontak')">📞 Kontak</button>
+    </div>
+
+    <!-- FRAME UTAMA -->
+    <div class="frame-container">
+        <iframe id="frameUtama" src="data:text/html;charset=utf-8,%3C!DOCTYPE%20html%3E..." title="Konten Biodata"></iframe>
+    </div>
+
+    <div class="footer-custom">
+        <span>🎨 Tugas Frame Navigasi • 4 Halaman (Home, Hobby, Pendidikan, Kontak) • Isi tetap sesuai kode asli</span>
+    </div>
+
+    <script>
+        // Fungsi untuk mengubah src iframe dengan konten masing-masing halaman
+        function gantiHalaman(page) {
+            const iframe = document.getElementById('frameUtama');
+            if (page === 'home') {
+                iframe.srcdoc = getHalamanHome();
+            } else if (page === 'hobby') {
+                iframe.srcdoc = getHalamanHobby();
+            } else if (page === 'pendidikan') {
+                iframe.srcdoc = getHalamanPendidikan();
+            } else if (page === 'kontak') {
+                iframe.srcdoc = getHalamanKontak();
+            }
+        }
+
+        // ======================= HALAMAN HOME (BIODATA LENGKAP) =======================
+        function getHalamanHome() {
+            return `<!DOCTYPE html>
+            <html>
+            <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <style>
+                body { font-family: 'Segoe UI', Arial, sans-serif; padding: 25px 28px; background: linear-gradient(145deg, #f9f9f9 0%, #eaeef5 100%); margin: 0; }
+                .isi-biodata { background-color: rgba(255, 255, 255, 0.85); backdrop-filter: blur(2px); padding: 28px 32px; border-radius: 40px 12px 40px 12px; border: 3px dashed #334155; box-shadow: inset 0 0 0 2px #fff8, 0 16px 20px -8px #1e293b; }
+                p { font-size: 1.3rem; margin: 1rem 0; display: flex; align-items: baseline; flex-wrap: wrap; }
+                .label-tebal { font-weight: 800; min-width: 90px; display: inline-block; font-size: 1.4rem; text-decoration: underline wavy rgba(0,0,0,0.1); }
+                .warna-npm-value { color: #b64516; background: #fff1e0; padding: 0 6px; border-radius: 16px; }
+                .dpn { color: #c43e7a; font-weight: 600; }
+                .warna-usia-value { color: #8e44ad; background: #f3e8ff; padding: 0 8px; border-radius: 12px; }
+                .warna-hobi { color: #d97706; font-weight: 500; }
+                .warna-kota { color: #a11f5c; font-weight: 500; }
+                .warna-kampus { color: #0d6b6e; font-weight: 500; }
+                .label-npm { color: #a33329; background: #fee; }
+                .label-nama { color: #1c7e4c; background: #e3f7ec; }
+                .label-usia { color: #ac4e9b; background: #f3dcf0; }
+                .label-lain { background: #fef3c7; color:#92400e; }
+                .profil-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 20px; }
+                @media (max-width: 640px) { .profil-grid { grid-template-columns: 1fr; } p { font-size: 1rem; } .label-tebal { min-width: 70px; } }
+                .profil-card { background: rgba(255,255,255,0.75); border-radius: 20px; padding: 18px 20px; box-shadow: 0 6px 16px rgba(0,0,0,0.09); border-top: 5px solid var(--card-color); }
+                .profil-card h3 { margin: 0 0 12px 0; font-size: 1.05rem; font-weight: 800; color: var(--card-color); display: flex; align-items: center; gap: 6px; }
+                .profil-card ul { margin: 0; padding-left: 20px; list-style: none; }
+                .profil-card ul li { position: relative; padding: 4px 0; font-size: 0.97rem; color: #374151; }
+                .profil-card ul li::before { content: "▸"; color: var(--card-color); font-weight: bold; position: absolute; left: -18px; }
+                .card-pengalaman { --card-color: #1d4ed8; } .card-bahasa { --card-color: #059669; } .card-makanan { --card-color: #d97706; } .card-artis { --card-color: #9333ea; }
+                .section-title { text-align: center; font-size: 1.5rem; font-weight: 800; margin: 25px 0 14px 0; }
+            </style>
+            </head>
+            <body>
+            <div class="isi-biodata">
+                <p><span class="label-tebal label-npm">NPM</span> <span class="warna-npm-value">: 124005004</span> <span style="color:#b20738;">✨</span></p>
+                <p><span class="label-tebal label-nama">Nama</span> <span style="color:#3f6a2c;">: </span><span class="dpn">Gifar Alfa Rizi</span></p>
+                <p><span class="label-tebal label-usia">Usia</span> <span class="warna-usia-value">: 20 tahun</span> <span style="color:#1d7a5c;"> (🌟 lahir 2005)</span></p>
+                <p><span class="label-tebal label-lain">Hobi</span> <span style="color:#b45309; font-weight:600;">: </span><span class="warna-hobi">Membaca Komik</span> <span style="color:#ba5f31;">&nbsp;& Menonton Film</span></p>
+                <p><span class="label-tebal label-lain">Kota asal</span> <span style="color:#0284c7;">: </span><span class="warna-kota">Jakarta Pusat</span><span style="color:#b26b2d;">, Jakarta 🌃</span></p>
+                <p><span class="label-tebal label-lain">Kampus</span> <span style="color:#7e22ce;">: </span><span class="warna-kampus">Universitas Halim Sanusi, Fakultas Komputer</span></p>
+            </div>
+            <div class="section-title"><span style="color:#6d28d9;">📌</span> Profil Lengkap <span style="color:#0d6b6e;">& Detail</span></div>
+            <div class="profil-grid">
+                <div class="profil-card card-pengalaman"><h3>💼 Pengalaman / Kerja</h3><ul><li>Freelance Web Developer (2024)</li><li>Asisten Lab Komputer (2024)</li><li>Magang UI/UX di StartupBDG (2023)</li></ul></div>
+                <div class="profil-card card-bahasa"><h3>🌐 Bahasa yang Dikuasai</h3><ul><li>🇮🇩 Bahasa Indonesia (Native)</li><li>🇬🇧 Bahasa Inggris (Intermediate)</li><li>🇯🇵 Bahasa Jepang (Beginner)</li><li>💻 HTML, CSS, JavaScript</li><li>🐍 Python (Dasar)</li></ul></div>
+                <div class="profil-card card-makanan"><h3>🍜 Makanan Favorit</h3><ul><li>Nasi Goreng Spesial 🍳</li><li>Mie Ayam Bakso 🍜</li><li>Martabak Manis Coklat 🫓</li></ul></div>
+                <div class="profil-card card-artis"><h3>🎤 Artis Favorit</h3><ul><li>Tulus 🎵</li><li>James Arthur 🎸</li><li>Hindia 🎶</li></ul></div>
+            </div>
+            <div style="text-align:center; margin-top:20px;"><span style="color:#3b5c5a;">🏠 Halaman Utama - Biodata Pribadi</span></div>
+            </body>
+            </html>`;
+        }
+
+        // ======================= HALAMAN HOBBY =======================
+        function getHalamanHobby() {
+            return `<!DOCTYPE html>
+            <html>
+            <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <style>
+                body { font-family: 'Segoe UI', Arial, sans-serif; padding: 30px; background: linear-gradient(135deg, #fff0e7, #ffe6f0); margin: 0; }
+                .hobby-container { max-width: 700px; margin: 0 auto; background: white; border-radius: 48px; padding: 28px 32px; box-shadow: 0 20px 30px rgba(0,0,0,0.1); text-align: center; }
+                h1 { color: #c44536; font-size: 2.2rem; border-left: 8px solid #f97316; padding-left: 20px; display: inline-block; }
+                .hobi-list { display: flex; flex-wrap: wrap; gap: 18px; justify-content: center; margin: 30px 0; }
+                .hobi-card { background: #fef9e3; border-radius: 48px; padding: 20px 25px; width: 200px; box-shadow: 0 8px 0 #e2b574; transition: 0.2s; }
+                .hobi-card:hover { transform: translateY(-5px); }
+                .hobi-card h3 { font-size: 1.8rem; margin: 10px 0; }
+                .hobi-card p { color: #4b5563; }
+                .quote { font-style: italic; background: #f1f5f9; border-radius: 24px; padding: 15px; margin-top: 25px; }
+            </style>
+            </head>
+            <body>
+            <div class="hobby-container">
+                <h1>🎨 Hobi & Minat 🎧</h1>
+                <div class="hobi-list">
+                    <div class="hobi-card"><h3>📚 Membaca Komik</h3><p>One Piece, Naruto, sampai manhwa terbaru</p></div>
+                    <div class="hobi-card"><h3>🎬 Menonton Film</h3><p>Sci-fi, action, & anime movies</p></div>
+                    <div class="hobi-card"><h3>🎮 Gaming</h3><p>Valorant, Genshin Impact, & RPG</p></div>
+                    <div class="hobi-card"><h3>💻 Coding Kreatif</h3><p>Eksperimen web & desain UI</p></div>
+                </div>
+                <div class="quote">
+                    <span>⭐ "Hobi adalah sumber energi positif dan kreativitas" ⭐</span><br>
+                    <span style="color:#d97706;">✨ Saya juga suka mendengarkan musik & explore teknologi baru ✨</span>
+                </div>
+                <p style="margin-top: 20px;">🏃‍♂️ Aktivitas favorit: Ngoding sambil ngopi, marathon anime, dan main badminton santai.</p>
+            </div>
+            </body>
+            </html>`;
+        }
+
+        // ======================= HALAMAN PENDIDIKAN (RIWAYAT) =======================
+        function getHalamanPendidikan() {
+            return `<!DOCTYPE html>
+            <html>
+            <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <style>
+                body { font-family: 'Segoe UI', Arial, sans-serif; padding: 25px; background: #eef2f5; margin: 0; }
+                .pendidikan-wrap { max-width: 850px; margin: 0 auto; background: white; border-radius: 32px; padding: 20px 28px; box-shadow: 0 12px 24px rgba(0,0,0,0.1); }
+                .pendidikan-title { font-size: 1.9rem; font-weight: 800; text-align: center; background: linear-gradient(135deg, #0f2b3d, #1b4f6e); -webkit-background-clip: text; background-clip: text; color: transparent; margin-bottom: 25px; }
+                .tabel-pendidikan { width: 100%; border-collapse: collapse; border-radius: 24px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+                .tabel-pendidikan thead tr { background: linear-gradient(95deg, #1e3c4c, #2a5a6e); color: white; font-weight: 700; }
+                .tabel-pendidikan th, .tabel-pendidikan td { padding: 14px 12px; text-align: center; border-bottom: 1px solid #e2e8f0; }
+                .tabel-pendidikan tbody tr:nth-child(even) { background-color: #f8fafc; }
+                .tabel-pendidikan tbody tr:hover { background-color: #eef2ff; }
+                .lembaga-nama { font-weight: 700; color: #0f4c5f; text-align: left; padding-left: 20px; }
+                .info-tambahan { margin-top: 30px; background: #fef9e3; border-radius: 28px; padding: 16px; text-align: center; border-left: 8px solid #facc15; }
+            </style>
+            </head>
+            <body>
+            <div class="pendidikan-wrap">
+                <div class="pendidikan-title"><span>🎓</span> RIWAYAT PENDIDIKAN <span>📖</span></div>
+                <table class="tabel-pendidikan">
+                    <thead><tr><th>No.</th><th>Nama Lembaga</th><th>Tahun Masuk</th><th>Tahun Lulus</th></tr></thead>
+                    <tbody>
+                        <tr><td>1</td><td class="lembaga-nama">SDN 19 Cempaka Putih Jakarta</td><td>2012</td><td>2018</td></tr>
+                        <tr><td>2</td><td class="lembaga-nama">SMP Negeri 71 Jakarta</td><td>2018</td><td>2021</td></tr>
+                        <tr><td>3</td><td class="lembaga-nama">SMA Negeri 30 Jakarta (IPA)</td><td>2021</td><td>2024</td></tr>
+                        <tr><td>4</td><td class="lembaga-nama">Universitas Halim Sanusi - S1 Teknik Informatika</td><td>2024</td><td>Sekarang (2026)</td></tr>
+                    </tbody>
+                </table>
+                <div class="info-tambahan">
+                    📌 *Sedang menempuh semester 4, aktif di organisasi himpunan mahasiswa komputer.*<br>
+                    🏆 Sertifikasi: Cisco IT Essentials, Workshop Front-End Dev.
+                </div>
+                <div style="font-size:0.8rem; text-align:right; margin-top:15px;">📘 Riwayat pendidikan sesuai data pribadi</div>
+            </div>
+            </body>
+            </html>`;
+        }
+
+        // ======================= HALAMAN KONTAK (Email, No Telp, Medsos) =======================
+        function getHalamanKontak() {
+            return `<!DOCTYPE html>
+            <html>
+            <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <style>
+                body { font-family: 'Segoe UI', Arial, sans-serif; padding: 30px; background: linear-gradient(145deg, #e2e8f0, #cbd5e6); margin: 0; }
+                .kontak-card { max-width: 700px; margin: 0 auto; background: white; border-radius: 48px; padding: 28px 35px; text-align: center; box-shadow: 0 20px 30px rgba(0,0,0,0.15); }
+                h2 { color: #0f3b4c; font-size: 2rem; margin-bottom: 10px; }
+                .detail-kontak { margin: 30px 0; text-align: left; background: #f8fafc; border-radius: 28px; padding: 20px; }
+                .detail-kontak p { font-size: 1.2rem; margin: 14px 0; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+                .icon { font-size: 1.6rem; min-width: 48px; }
+                .sosmed-grid { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin: 25px 0 10px; }
+                .sosmed-link { display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; border-radius: 50px; font-weight: 700; text-decoration: none; transition: 0.15s; box-shadow: 0 4px 0 rgba(0,0,0,0.18); color: white; }
+                .link-instagram { background: linear-gradient(135deg, #f58529, #dd2a7b, #8134af); }
+                .link-tiktok { background: linear-gradient(135deg, #010101, #69c9d0); }
+                .link-youtube { background: #ff0000; }
+                .link-github { background: #24292e; }
+                .link-linkedin { background: #0077b5; }
+                .sosmed-link:hover { transform: translateY(-3px); filter: brightness(1.05); }
+                .email-link { background: #2c7da0; color: white; padding: 6px 14px; border-radius: 30px; text-decoration: none; font-weight: bold; display: inline-block; }
+            </style>
+            </head>
+            <body>
+            <div class="kontak-card">
+                <h2>📞 Kontak & Media Sosial</h2>
+                <div class="detail-kontak">
+                    <p><span class="icon">📧</span> <strong>Email:</strong> gifargg22@gmail.com &nbsp; <a href="mailto:gifargg22@gmail.com" class="email-link">Kirim Pesan</a></p>
+                    <p><span class="icon">📱</span> <strong>No. Telepon:</strong> +62 857-8153-3367</p>
+                    <p><span class="icon">📍</span> <strong>Alamat:</strong> Jakarta Pusat, DKI Jakarta, Indonesia</p>
+                </div>
+                <div style="border-top: 2px solid #e2e8f0; margin: 15px 0;"></div>
+                <div class="sosmed-grid">
+                    <a href="https://www.instagram.com/alriz_22?igsh=Z3JiM2NlNTBkNGJ5" target="_blank" class="sosmed-link link-instagram">📸 Instagram</a>
+                    <a href="https://www.tiktok.com/@alfa.gifar.rizi?_r=1&_t=ZS-95DjKFUGlt6" target="_blank" class="sosmed-link link-tiktok">🎵 TikTok</a>
+                    <a href="https://youtube.com/@gifaralfayexi9750?si=rdKR2zb2vwsHEjdw" target="_blank" class="sosmed-link link-youtube">▶️ YouTube</a>
+                    <a href="https://github.com/01345/Gifar_Alfa_Rizi.github.io" target="_blank" class="sosmed-link link-github">🐙 GitHub</a>
+                    <a href="#" class="sosmed-link link-linkedin">🔗 LinkedIn (Gifar Alfa)</a>
+                </div>
+                <p style="margin-top: 25px;">💬 Jangan ragu untuk menghubungi saya untuk kolaborasi atau sekadar ngobrol santai!</p>
+            </div>
+            </body>
+            </html>`;
+        }
+
+        // Set default halaman Home saat load
+        window.onload = () => {
+            gantiHalaman('home');
+        };
+    </script>
+</body>
+</html>
