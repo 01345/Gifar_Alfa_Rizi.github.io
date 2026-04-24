@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Biodata Tugas - Frame Navigasi (4 Halaman)</title>
+    <title>Biodata Tugas - Frame Navigasi (4 Halaman) + Background Image</title>
     <style>
         /* Gaya utama dari kode asli tetap dipertahankan */
         body {
@@ -106,7 +106,7 @@
     <!-- JUDUL -->
     <h1 class="judul">
         <span style="color:#D44A3B;">B</span><span style="color:#E68A2E;">I</span><span style="color:#DCB23A;">O</span><span style="color:#3A9B5F;">D</span><span style="color:#2A7FAA;">A</span><span style="color:#6C4F9F;">T</span><span style="color:#B54E8A;">A</span><span style="color:#CF5A3A;">K</span><span style="color:#D98C2E;">U</span>
-        <span style="font-size: 1rem; display: inline-block; background: #facc15; padding: 4px 12px; border-radius: 40px; margin-left: 15px;">📁 Frame Navigasi</span>
+        <span style="font-size: 1rem; display: inline-block; background: #facc15; padding: 4px 12px; border-radius: 40px; margin-left: 15px;">📁 Frame Navigasi + Background Image</span>
     </h1>
 
     <!-- PEMBATAS -->
@@ -129,7 +129,7 @@
     </div>
 
     <div class="footer-custom">
-        <span>🎨 Tugas Frame Navigasi • 4 Halaman (Home, Hobby, Pendidikan, Kontak) • Isi tetap sesuai kode asli</span>
+        <span>🎨 Tugas Frame Navigasi • 4 Halaman (Home, Hobby, Pendidikan, Kontak) • Background Image dan Pewarnaan telah ditambahkan sesuai perintah.</span>
     </div>
 
     <script>
@@ -153,8 +153,25 @@
             <html>
             <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
             <style>
-                body { font-family: 'Segoe UI', Arial, sans-serif; padding: 25px 28px; background: linear-gradient(145deg, #f9f9f9 0%, #eaeef5 100%); margin: 0; }
-                .isi-biodata { background-color: rgba(255, 255, 255, 0.85); backdrop-filter: blur(2px); padding: 28px 32px; border-radius: 40px 12px 40px 12px; border: 3px dashed #334155; box-shadow: inset 0 0 0 2px #fff8, 0 16px 20px -8px #1e293b; }
+                /* Background Image dengan pewarnaan tambahan (overlay) */
+                body { 
+                    font-family: 'Segoe UI', Arial, sans-serif; 
+                    margin: 0; 
+                    padding: 25px 28px; 
+                    /* Gambar background: abstrak geometris lembut */
+                    background-image: linear-gradient(rgba(255, 245, 235, 0.85), rgba(210, 225, 240, 0.9)), url('https://images.unsplash.com/photo-1557682250-33bd709cbe85?w=1600');
+                    background-size: cover;
+                    background-attachment: fixed;
+                    background-position: center;
+                }
+                .isi-biodata { 
+                    background-color: rgba(255, 255, 255, 0.85); 
+                    backdrop-filter: blur(2px); 
+                    padding: 28px 32px; 
+                    border-radius: 40px 12px 40px 12px; 
+                    border: 3px dashed #334155; 
+                    box-shadow: inset 0 0 0 2px #fff8, 0 16px 20px -8px #1e293b; 
+                }
                 p { font-size: 1.3rem; margin: 1rem 0; display: flex; align-items: baseline; flex-wrap: wrap; }
                 .label-tebal { font-weight: 800; min-width: 90px; display: inline-block; font-size: 1.4rem; text-decoration: underline wavy rgba(0,0,0,0.1); }
                 .warna-npm-value { color: #b64516; background: #fff1e0; padding: 0 6px; border-radius: 16px; }
@@ -169,7 +186,7 @@
                 .label-lain { background: #fef3c7; color:#92400e; }
                 .profil-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 20px; }
                 @media (max-width: 640px) { .profil-grid { grid-template-columns: 1fr; } p { font-size: 1rem; } .label-tebal { min-width: 70px; } }
-                .profil-card { background: rgba(255,255,255,0.75); border-radius: 20px; padding: 18px 20px; box-shadow: 0 6px 16px rgba(0,0,0,0.09); border-top: 5px solid var(--card-color); }
+                .profil-card { background: rgba(255,255,255,0.85); border-radius: 20px; padding: 18px 20px; box-shadow: 0 6px 16px rgba(0,0,0,0.09); border-top: 5px solid var(--card-color); }
                 .profil-card h3 { margin: 0 0 12px 0; font-size: 1.05rem; font-weight: 800; color: var(--card-color); display: flex; align-items: center; gap: 6px; }
                 .profil-card ul { margin: 0; padding-left: 20px; list-style: none; }
                 .profil-card ul li { position: relative; padding: 4px 0; font-size: 0.97rem; color: #374151; }
@@ -205,8 +222,17 @@
             <html>
             <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
             <style>
-                body { font-family: 'Segoe UI', Arial, sans-serif; padding: 30px; background: linear-gradient(135deg, #fff0e7, #ffe6f0); margin: 0; }
-                .hobby-container { max-width: 700px; margin: 0 auto; background: white; border-radius: 48px; padding: 28px 32px; box-shadow: 0 20px 30px rgba(0,0,0,0.1); text-align: center; }
+                body { 
+                    font-family: 'Segoe UI', Arial, sans-serif; 
+                    padding: 30px; 
+                    margin: 0; 
+                    /* Background image: suasana kreatif dan warna-warni */
+                    background-image: linear-gradient(rgba(255, 235, 215, 0.85), rgba(240, 225, 245, 0.9)), url('https://images.unsplash.com/photo-1513151233558-860c5392816f?w=1600');
+                    background-size: cover;
+                    background-attachment: fixed;
+                    background-position: center;
+                }
+                .hobby-container { max-width: 700px; margin: 0 auto; background: rgba(255, 255, 255, 0.9); border-radius: 48px; padding: 28px 32px; box-shadow: 0 20px 30px rgba(0,0,0,0.1); text-align: center; }
                 h1 { color: #c44536; font-size: 2.2rem; border-left: 8px solid #f97316; padding-left: 20px; display: inline-block; }
                 .hobi-list { display: flex; flex-wrap: wrap; gap: 18px; justify-content: center; margin: 30px 0; }
                 .hobi-card { background: #fef9e3; border-radius: 48px; padding: 20px 25px; width: 200px; box-shadow: 0 8px 0 #e2b574; transition: 0.2s; }
@@ -241,8 +267,17 @@
             <html>
             <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
             <style>
-                body { font-family: 'Segoe UI', Arial, sans-serif; padding: 25px; background: #eef2f5; margin: 0; }
-                .pendidikan-wrap { max-width: 850px; margin: 0 auto; background: white; border-radius: 32px; padding: 20px 28px; box-shadow: 0 12px 24px rgba(0,0,0,0.1); }
+                body { 
+                    font-family: 'Segoe UI', Arial, sans-serif; 
+                    padding: 25px; 
+                    margin: 0; 
+                    /* Background image: tema pendidikan modern */
+                    background-image: linear-gradient(rgba(230, 240, 255, 0.9), rgba(200, 220, 250, 0.85)), url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=1600');
+                    background-size: cover;
+                    background-attachment: fixed;
+                    background-position: center;
+                }
+                .pendidikan-wrap { max-width: 850px; margin: 0 auto; background: rgba(255, 255, 255, 0.92); border-radius: 32px; padding: 20px 28px; box-shadow: 0 12px 24px rgba(0,0,0,0.1); }
                 .pendidikan-title { font-size: 1.9rem; font-weight: 800; text-align: center; background: linear-gradient(135deg, #0f2b3d, #1b4f6e); -webkit-background-clip: text; background-clip: text; color: transparent; margin-bottom: 25px; }
                 .tabel-pendidikan { width: 100%; border-collapse: collapse; border-radius: 24px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
                 .tabel-pendidikan thead tr { background: linear-gradient(95deg, #1e3c4c, #2a5a6e); color: white; font-weight: 700; }
@@ -281,8 +316,17 @@
             <html>
             <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
             <style>
-                body { font-family: 'Segoe UI', Arial, sans-serif; padding: 30px; background: linear-gradient(145deg, #e2e8f0, #cbd5e6); margin: 0; }
-                .kontak-card { max-width: 700px; margin: 0 auto; background: white; border-radius: 48px; padding: 28px 35px; text-align: center; box-shadow: 0 20px 30px rgba(0,0,0,0.15); }
+                body { 
+                    font-family: 'Segoe UI', Arial, sans-serif; 
+                    padding: 30px; 
+                    margin: 0; 
+                    /* Background image: tema koneksi/komunikasi */
+                    background-image: linear-gradient(rgba(25, 40, 55, 0.75), rgba(35, 55, 75, 0.8)), url('https://images.unsplash.com/photo-1557804506-669a67965ba0?w=1600');
+                    background-size: cover;
+                    background-attachment: fixed;
+                    background-position: center;
+                }
+                .kontak-card { max-width: 700px; margin: 0 auto; background: rgba(255, 255, 255, 0.95); border-radius: 48px; padding: 28px 35px; text-align: center; box-shadow: 0 20px 30px rgba(0,0,0,0.15); }
                 h2 { color: #0f3b4c; font-size: 2rem; margin-bottom: 10px; }
                 .detail-kontak { margin: 30px 0; text-align: left; background: #f8fafc; border-radius: 28px; padding: 20px; }
                 .detail-kontak p { font-size: 1.2rem; margin: 14px 0; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
